@@ -1,0 +1,44 @@
+[
+  {
+    "id": "lokal-filosofi-alam",
+    "judul": "Filosofi Alam dan Botani Tropis",
+    "penulis": "Dr. Ratna Sari Dewi",
+    "kategori": "Sains",
+    "bahasa": "id",
+    "format": "epub",
+    "file": "/public/ebooks/filosofi-alam-nusantara.epub",
+    "sampul": "/src/assets/images/cover_filosofi_alam_1795694058692.jpg",
+    "tahun": 2024,
+    "lisensi": "CC BY-SA 4.0 (Koleksi Lokal Terbuka)",
+    "bolehUnduh": true,
+    "deskripsi": "Kajian ringkas mengenai ekosistem hutan hujan tropis, astronomi khatulistiwa, dan etika pelestarian pengetahuan alam secara terbuka."
+  },
+  {
+    "id": "lokal-maritim-nusantara",
+    "judul": "Jejak Pelayaran Maritim Nusantara",
+    "penulis": "Drs. Bagus Prasetyo",
+    "kategori": "Sejarah",
+    "bahasa": "id",
+    "format": "pdf",
+    "file": "/public/ebooks/catatan-maritim-nusantara.pdf",
+    "sampul": "/src/assets/images/cover_sejarah_nusantara_1795694059259.jpg",
+    "tahun": 2023,
+    "lisensi": "CC BY 4.0 (Koleksi Lokal Terbuka)",
+    "bolehUnduh": true,
+    "deskripsi": "Monograf sejarah pelayaran Nusantara yang mengulas angin muson, jaringan niaga purba, dan teknik konstruksi perkapalan tradisional."
+  },
+  {
+    "id": "lokal-logika-matematika",
+    "judul": "Pengantar Logika dan Pola Geometri",
+    "penulis": "Prof. Hendra Wijaya",
+    "kategori": "Pendidikan",
+    "bahasa": "id",
+    "format": "epub",
+    "file": "/public/ebooks/dasar-logika-dan-matematika.epub",
+    "sampul": "/src/assets/images/cover_logika_matematika_1795694059781.jpg",
+    "tahun": 2025,
+    "lisensi": "CC0 1.0 (Domain Publik Lokal)",
+    "bolehUnduh": true,
+    "deskripsi": "Pengantar penalaran deduktif, rasio emas, dan simetri geometri alam sebagai fondasi pembelajaran sains dan komputasi modern."
+  }
+]

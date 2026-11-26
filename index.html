@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="id" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bibliotheca Sophia — Akses ilmu kapan saja, di mana saja</title>
+    <meta
+      name="description"
+      content="Bibliotheca Sophia adalah perpustakaan digital modern berbahasa Indonesia dengan koleksi e-book domain publik dan open access."
+    />
+    <meta property="og:title" content="Bibliotheca Sophia — Perpustakaan Digital Terbuka" />
+    <meta
+      property="og:description"
+      content="Akses ilmu kapan saja, di mana saja. Baca e-book EPUB, PDF, dan arsip terbuka langsung di peramban."
+    />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Terapkan tema tersimpan sebelum render untuk menghindari kilatan layar -->
+    <script>
+      (function () {
+        try {
+          var saved = localStorage.getItem('bs_theme');
+          var theme = saved ? JSON.parse(saved) : null;
+          if (theme === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.classList.add('dark');
+          }
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Google Fonts: Poppins (Display), Plus Jakarta Sans (Body), Lora (Pembaca Buku) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <a href="#koleksi" class="skip-link">Langsung ke Koleksi</a>
+
+    <!-- 1. NAVBAR -->
+    <header class="site-header">
+      <div class="container nav-inner">
+        <a href="#beranda" class="brand-link" aria-label="Beranda Bibliotheca Sophia">
+          <span class="brand-mark" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+            </svg>
+          </span>
+          <span>Bibliotheca Sophia</span>
+        </a>
+
+        <nav class="nav-links" aria-label="Navigasi utama">
+          <a href="#beranda">Beranda</a>
+          <a href="#koleksi">Koleksi</a>
+          <a href="#kategori">Kategori</a>
+          <a href="#layanan">Layanan</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#kontak">Kontak</a>
+        </nav>
+
+        <div class="nav-actions">
+          <button
+            type="button"
+            id="theme-toggle-btn"
+            class="icon-btn"
+            aria-label="Ubah tema gelap atau terang"
+            aria-pressed="false"
+            title="Ubah tema"
+          >
+            <svg id="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+            </svg>
+            <svg id="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" hidden aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+          </button>
+
+          <button type="button" id="auth-open-btn" class="btn btn-primary">
+            Masuk
+          </button>
+
+          <button
+            type="button"
+            id="mobile-menu-btn"
+            class="icon-btn mobile-menu-toggle"
+            aria-label="Buka menu navigasi"
+            aria-expanded="false"
+            aria-controls="mobile-drawer"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="mobile-drawer" class="mobile-drawer" aria-label="Navigasi seluler">
+      <div class="mobile-drawer-links">
+        <a href="#beranda">Beranda</a>
+        <a href="#koleksi">Koleksi</a>
+        <a href="#kategori">Kategori</a>
+        <a href="#layanan">Layanan</a>
+        <a href="#tentang">Tentang</a>
+        <a href="#kontak">Kontak</a>
+      </div>
+    </div>
+
+    <main>
+      <!-- 2. HERO -->
+      <section id="beranda" class="hero-section">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <p class="hero-kicker">Perpustakaan Digital Terbuka</p>
+            <h1 class="hero-title">Bibliotheca Sophia</h1>
+            <p class="hero-tagline">
+              Akses ilmu kapan saja, di mana saja. Jelajahi ribuan buku domain publik dan
+              open access dari koleksi lokal, Project Gutenberg, Open Library, hingga Internet Archive.
+            </p>
+
+            <form id="hero-search-form" class="hero-search-form" role="search" aria-label="Pencarian koleksi buku">
+              <div class="hero-search-input-wrap">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.3-4.3" />
+                </svg>
+                <label for="hero-search-input" class="sr-only">Cari judul, penulis, atau subjek buku</label>
+                <input
+                  id="hero-search-input"
+                  type="search"
+                  class="hero-search-input"
+                  placeholder="Cari judul buku, penulis, atau subjek..."
+                  autocomplete="off"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary">Cari Buku</button>
+            </form>
+
+            <div class="hero-suggestions">
+              <span>Telusuri cepat:</span>
+              <button type="button" class="suggestion-link" data-quick-query="science">Sains &amp; Alam</button>
+              <button type="button" class="suggestion-link" data-quick-query="history">Sejarah Dunia</button>
+              <button type="button" class="suggestion-link" data-quick-query="philosophy">Filsafat</button>
+              <button type="button" class="suggestion-link" data-quick-query="children">Cerita Anak</button>
+            </div>
+          </div>
+
+          <div class="hero-media">
+            <img
+              src="/src/assets/images/hero_library_editorial_1795694058712.jpg"
+              alt="Ruang baca modern Bibliotheca Sophia dengan rak buku kayu dan cahaya alami"
+              referrerpolicy="no-referrer"
+            />
+            <div class="hero-media-caption">
+              <strong>Ruang Baca Digital Terpadu</strong>
+              <span>Baca EPUB, PDF, dan arsip terbuka langsung di peramban tanpa iklan atau pelacakan.</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. KATEGORI POPULER -->
+      <section id="kategori" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Kurasi Subjek</p>
+              <h2 class="section-title">Kategori Populer</h2>
+              <p class="section-desc">Pilih bidang pengetahuan untuk menyaring koleksi buku secara instan.</p>
+            </div>
+          </div>
+
+          <div class="category-grid" id="category-cards">
+            <button type="button" class="category-card" data-category="Sains">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M10 2v7.31l-5.27 8.43A2 2 0 0 0 6.43 21h11.14a2 2 0 0 0 1.7-3.26L14 9.31V2" />
+                  <path d="M8.5 2h7" />
+                </svg>
+              </span>
+              <h3 class="category-name">Sains</h3>
+              <span class="category-sub">Fisika, biologi, astronomi, &amp; ekologi</span>
+            </button>
+
+            <button type="button" class="category-card" data-category="Sastra">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                  <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                </svg>
+              </span>
+              <h3 class="category-name">Sastra</h3>
+              <span class="category-sub">Novel klasik, puisi, &amp; antologi dunia</span>
+            </button>
+
+            <button type="button" class="category-card" data-category="Teknologi">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="16" height="16" x="4" y="4" rx="2" />
+                  <rect width="6" height="6" x="9" y="9" rx="1" />
+                  <path d="M15 2v2M9 2v2M15 20v2M9 20v2M2 9h2M2 15h2M20 9h2M20 15h2" />
+                </svg>
+              </span>
+              <h3 class="category-name">Teknologi</h3>
+              <span class="category-sub">Rekayasa, mesin, &amp; sejarah komputasi</span>
+            </button>
+
+            <button type="button" class="category-card" data-category="Sejarah">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
+                </svg>
+              </span>
+              <h3 class="category-name">Sejarah</h3>
+              <span class="category-sub">Peradaban, maritim, &amp; biografi tokoh</span>
+            </button>
+
+            <button type="button" class="category-card" data-category="Pendidikan">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+                  <path d="M6 12v5c3 3 9 3 12 0v-5" />
+                </svg>
+              </span>
+              <h3 class="category-name">Pendidikan</h3>
+              <span class="category-sub">Filsafat, logika, &amp; buku ajar terbuka</span>
+            </button>
+
+            <button type="button" class="category-card" data-category="Anak">
+              <span class="category-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 3a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 21l-.75-10.07A4 4 0 0 1 8 7a4 4 0 0 1 4-4Z" />
+                  <path d="M5 17h14" />
+                </svg>
+              </span>
+              <h3 class="category-name">Anak</h3>
+              <span class="category-sub">Fabel, dongeng klasik, &amp; bacaan muda</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. KOLEKSI E-BOOK -->
+      <section id="koleksi" class="section section-surface">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Katalog Terbuka &amp; Legal</p>
+              <h2 class="section-title">Koleksi E-Book</h2>
+              <p class="section-desc">
+                Semua judul bersumber dari koleksi lokal Anda dan repositori domain publik / open access.
+              </p>
+            </div>
+          </div>
+
+          <div class="catalog-toolbar" role="region" aria-label="Filter koleksi buku">
+            <div class="field-group">
+              <label for="filter-search" class="field-label">Kata Kunci</label>
+              <input
+                id="filter-search"
+                type="search"
+                class="control-input"
+                placeholder="Judul, penulis, atau topik..."
+              />
+            </div>
+
+            <div class="field-group">
+              <label for="filter-category" class="field-label">Kategori</label>
+              <select id="filter-category" class="control-select">
+                <option value="Semua">Semua Kategori</option>
+                <option value="Sains">Sains</option>
+                <option value="Sastra">Sastra</option>
+                <option value="Teknologi">Teknologi</option>
+                <option value="Sejarah">Sejarah</option>
+                <option value="Pendidikan">Pendidikan</option>
+                <option value="Anak">Anak</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="filter-language" class="field-label">Bahasa</label>
+              <select id="filter-language" class="control-select">
+                <option value="Semua">Semua Bahasa</option>
+                <option value="id">Indonesia</option>
+                <option value="en">Inggris</option>
+                <option value="fr">Prancis</option>
+                <option value="de">Jerman</option>
+                <option value="es">Spanyol</option>
+              </select>
+            </div>
+
+            <div class="field-group">
+              <label for="filter-source" class="field-label">Sumber</label>
+              <select id="filter-source" class="control-select">
+                <option value="Semua">Semua Sumber</option>
+                <option value="Koleksi Lokal">Koleksi Lokal</option>
+                <option value="Project Gutenberg">Project Gutenberg</option>
+                <option value="Open Library">Open Library</option>
+                <option value="Internet Archive">Internet Archive</option>
+              </select>
+            </div>
+
+            <div class="field-group" style="justify-content: flex-end;">
+              <button type="button" id="filter-reset-btn" class="btn btn-secondary">
+                Atur Ulang
+              </button>
+            </div>
+          </div>
+
+          <div class="catalog-status-bar">
+            <span id="catalog-count" class="tabular-nums">Memuat koleksi...</span>
+            <span id="catalog-cache-note"></span>
+          </div>
+
+          <div id="books-grid" class="books-grid" aria-live="polite"></div>
+
+          <div class="catalog-pagination">
+            <button type="button" id="load-more-btn" class="btn btn-secondary" hidden>
+              Muat Lebih Banyak Buku
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. LAYANAN -->
+      <section id="layanan" class="section">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <p class="section-kicker">Fasilitas Membaca</p>
+              <h2 class="section-title">Layanan Perpustakaan</h2>
+            </div>
+          </div>
+
+          <div class="services-grid">
+            <article class="service-card">
+              <span class="service-num tabular-nums">01.</span>
+              <h3 class="service-title">Pembaca Terintegrasi</h3>
+              <p class="service-desc">
+                Buka dokumen EPUB, PDF, dan arsip buku daring langsung di dalam halaman tanpa membuka tab baru.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <span class="service-num tabular-nums">02.</span>
+              <h3 class="service-title">Kenyamanan Tipografi</h3>
+              <p class="service-desc">
+                Sesuaikan ukuran huruf, telusuri daftar isi antarbab, dan pilih tema baca terang, sepia, atau gelap.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <span class="service-num tabular-nums">03.</span>
+              <h3 class="service-title">Progres &amp; Penanda Lokal</h3>
+              <p class="service-desc">
+                Halaman terakhir dan penanda bacaan tersimpan otomatis di peramban Anda untuk dilanjutkan kapan saja.
+              </p>
+            </article>
+
+            <article class="service-card">
+              <span class="service-num tabular-nums">04.</span>
+              <h3 class="service-title">Koleksi Legal Terkurasi</h3>
+              <p class="service-desc">
+                Hanya menautkan karya berlisensi terbuka dan domain publik dari arsip global serta rak lokal Anda.
+              </p>
+            </article>
+          </div>
+
+          <!-- 6. STATISTIK SINGKAT -->
+          <div class="stats-strip" aria-label="Statistik perpustakaan">
+            <div class="stat-item">
+              <div class="stat-value tabular-nums" id="stat-indexed">3+</div>
+              <div class="stat-label">Buku Terindeks Siap Baca</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value tabular-nums">70.000+</div>
+              <div class="stat-label">Katalog Domain Publik Global</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value tabular-nums">6 Bidang</div>
+              <div class="stat-label">Kategori Ilmu Terkurasi</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value tabular-nums" id="stat-bookmarks">0</div>
+              <div class="stat-label">Penanda Tersimpan Anda</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. TENTANG & KONTAK -->
+      <section id="tentang" class="section section-surface">
+        <div class="container about-contact-grid">
+          <div>
+            <p class="section-kicker">Tentang Kami</p>
+            <h2 class="section-title">Menjaga Akses Ilmu Tetap Terbuka</h2>
+            <p class="section-desc">
+              Bibliotheca Sophia dirancang sebagai ruang baca digital yang tenang, cepat, dan menghargai hak cipta.
+              Seluruh buku eksternal berasal dari penyedia domain publik dan open access resmi tanpa memerlukan kunci API.
+            </p>
+
+            <ul class="about-list">
+              <li>
+                <strong>Project Gutenberg (Gutendex)</strong>
+                <span>EPUB &amp; Teks Domain Publik</span>
+              </li>
+              <li>
+                <strong>Open Library</strong>
+                <span>Metadata &amp; Sampul Terbuka</span>
+              </li>
+              <li>
+                <strong>Internet Archive</strong>
+                <span>Pembaca Buku Arsip Publik</span>
+              </li>
+              <li>
+                <strong>Koleksi Lokal</strong>
+                <span>EPUB &amp; PDF di /public/ebooks</span>
+              </li>
+            </ul>
+          </div>
+
+          <div id="kontak" class="contact-card">
+            <p class="section-kicker">Hubungi Pustakawan</p>
+            <h2 class="section-title" style="font-size: 1.4rem; margin-bottom: 8px;">Kontak &amp; Usulan Koleksi</h2>
+            <p class="section-desc" style="margin-bottom: 20px;">
+              Sampaikan masukan, laporan tautan rusak, atau usulan buku domain publik untuk ditambahkan ke koleksi lokal.
+            </p>
+
+            <form id="contact-form" class="contact-form" novalidate>
+              <div class="field-group">
+                <label for="contact-name" class="field-label">Nama Lengkap</label>
+                <input id="contact-name" type="text" class="control-input" placeholder="Masukkan nama Anda" required />
+              </div>
+
+              <div class="field-group">
+                <label for="contact-email" class="field-label">Alamat Email</label>
+                <input id="contact-email" type="email" class="control-input" placeholder="nama@contoh.id" required />
+              </div>
+
+              <div class="field-group">
+                <label for="contact-message" class="field-label">Pesan atau Usulan Judul</label>
+                <textarea id="contact-message" class="contact-textarea" placeholder="Tulis pesan Anda di sini..." required></textarea>
+              </div>
+
+              <div id="contact-feedback" class="form-feedback" role="status"></div>
+
+              <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 8. FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <strong>Bibliotheca Sophia</strong> — Akses ilmu kapan saja, di mana saja.
+        </div>
+        <div class="footer-links">
+          <a href="#beranda">Beranda</a>
+          <a href="#koleksi">Koleksi</a>
+          <a href="#layanan">Layanan</a>
+          <a href="#tentang">Tentang</a>
+          <a href="#kontak">Kontak</a>
+        </div>
+        <div>&copy; <span id="footer-year">2026</span> Bibliotheca Sophia. Koleksi Domain Publik &amp; Open Access.</div>
+      </div>
+    </footer>
+
+    <!-- MODAL MASUK / PROFIL PEMBACA -->
+    <div
+      id="auth-modal"
+      class="modal-backdrop"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="auth-modal-title"
+    >
+      <div class="auth-dialog">
+        <div class="modal-header">
+          <div>
+            <h2 id="auth-modal-title">Akun Pembaca</h2>
+            <p id="auth-modal-subtitle">Simpan identitas pembaca dan akses cepat penanda buku Anda di perangkat ini.</p>
+          </div>
+          <button type="button" id="auth-close-btn" class="icon-btn" aria-label="Tutup jendela akun">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M18 6 6 18M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        <form id="auth-form" class="contact-form" novalidate>
+          <div class="field-group">
+            <label for="auth-name" class="field-label">Nama Pembaca</label>
+            <input id="auth-name" type="text" class="control-input" placeholder="Mis. Aulia Rahman" required />
+          </div>
+          <div class="field-group">
+            <label for="auth-email" class="field-label">Email</label>
+            <input id="auth-email" type="email" class="control-input" placeholder="aulia@contoh.id" required />
+          </div>
+          <div id="auth-feedback" class="form-feedback" role="status"></div>
+          <div style="display: flex; gap: 10px;">
+            <button type="submit" id="auth-submit-btn" class="btn btn-primary" style="flex: 1;">Masuk</button>
+            <button type="button" id="auth-logout-btn" class="btn btn-secondary" hidden>Keluar</button>
+          </div>
+        </form>
+
+        <div style="margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border-hairline);">
+          <h3 style="font-family: var(--font-display); font-size: 1rem; margin: 0 0 6px;">Penanda Buku Tersimpan</h3>
+          <p style="font-size: 0.84rem; color: var(--text-muted); margin: 0;">Klik "Buka" untuk melanjutkan langsung ke halaman tersimpan.</p>
+          <ul id="auth-bookmarks-list" class="saved-list"></ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL PEMBACA E-BOOK TERPADU -->
+    <div
+      id="reader-modal"
+      class="reader-backdrop"
+      data-reader-theme="terang"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="reader-book-title"
+    >
+      <div class="reader-topbar">
+        <div class="reader-title-group">
+          <button type="button" id="reader-close-btn" class="btn btn-secondary" aria-label="Tutup pembaca buku">
+            Tutup
+          </button>
+          <button
+            type="button"
+            id="reader-toc-toggle"
+            class="btn btn-secondary"
+            aria-expanded="false"
+            aria-controls="reader-sidebar"
+          >
+            Daftar Isi
+          </button>
+          <div class="reader-book-meta">
+            <h2 id="reader-book-title" class="reader-book-title">Memuat Judul...</h2>
+            <div id="reader-book-author" class="reader-book-author">Penulis</div>
+          </div>
+        </div>
+
+        <div class="reader-controls">
+          <div class="reader-font-control" id="reader-font-wrap">
+            <label for="reader-font-slider">Ukuran Huruf</label>
+            <input id="reader-font-slider" type="range" min="14" max="24" step="1" value="18" />
+            <span id="reader-font-value" class="tabular-nums">18px</span>
+          </div>
+
+          <div class="reader-theme-group" role="group" aria-label="Tema baca">
+            <button type="button" class="reader-theme-btn active" data-reader-theme-btn="terang">Terang</button>
+            <button type="button" class="reader-theme-btn" data-reader-theme-btn="sepia">Sepia</button>
+            <button type="button" class="reader-theme-btn" data-reader-theme-btn="gelap">Gelap</button>
+          </div>
+
+          <button type="button" id="reader-bookmark-btn" class="btn btn-secondary">
+            Tandai Halaman
+          </button>
+
+          <a
+            id="reader-download-btn"
+            class="btn btn-primary"
+            href="#"
+            download
+            hidden
+          >
+            Unduh
+          </a>
+        </div>
+      </div>
+
+      <div class="reader-workspace">
+        <aside id="reader-sidebar" class="reader-sidebar" aria-label="Daftar isi dan penanda buku">
+          <h3>Daftar Isi</h3>
+          <ul id="reader-toc-list" class="toc-list"></ul>
+
+          <h3>Penanda pada Buku Ini</h3>
+          <ul id="reader-book-bookmarks" class="toc-list"></ul>
+        </aside>
+
+        <div class="reader-stage">
+          <div id="reader-epub-area" class="reader-epub-area" hidden></div>
+
+          <div id="reader-pdf-area" class="reader-pdf-area" hidden>
+            <canvas id="reader-pdf-canvas" class="reader-pdf-canvas"></canvas>
+          </div>
+
+          <div id="reader-text-area" class="reader-text-area" hidden>
+            <article id="reader-text-prose" class="reader-text-prose"></article>
+          </div>
+
+          <iframe
+            id="reader-iframe"
+            class="reader-iframe"
+            title="Pembaca Internet Archive"
+            allowfullscreen
+            hidden
+          ></iframe>
+
+          <!-- Loading State -->
+          <div id="reader-loading-overlay" class="reader-overlay-state">
+            <div class="spinner" aria-hidden="true"></div>
+            <p id="reader-loading-text">Mempersiapkan buku untuk dibaca...</p>
+          </div>
+
+          <!-- Error State -->
+          <div id="reader-error-overlay" class="reader-overlay-state">
+            <h3 style="font-family: var(--font-display); margin: 0 0 8px;">Buku Tidak Dapat Dimuat</h3>
+            <p id="reader-error-message" style="max-width: 46ch; color: var(--r-muted); margin: 0 0 20px;">
+              Terjadi kendala jaringan atau pembatasan akses dari server asal.
+            </p>
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+              <button type="button" id="reader-retry-btn" class="btn btn-primary">Coba Muat Ulang</button>
+              <button type="button" id="reader-fallback-text-btn" class="btn btn-secondary" hidden>Buka Mode Teks Ringan</button>
+              <button type="button" id="reader-error-close-btn" class="btn btn-secondary">Tutup</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reader-footer" id="reader-footer">
+        <button type="button" id="reader-prev-btn" class="btn btn-secondary">Sebelumnya</button>
+
+        <div class="reader-progress-wrap">
+          <span id="reader-page-status" class="tabular-nums">Halaman 1</span>
+          <div class="reader-progress-track" aria-hidden="true">
+            <div id="reader-progress-fill" class="reader-progress-fill"></div>
+          </div>
+          <span id="reader-percent-status" class="tabular-nums">0%</span>
+        </div>
+
+        <button type="button" id="reader-next-btn" class="btn btn-secondary">Berikutnya</button>
+      </div>
+    </div>
+
+    <div id="app-toast" class="toast" role="status" aria-live="polite"></div>
+
+    <!-- Library Pihak Ketiga CDN (versi dipatok) -->
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs@0.3.93/dist/epub.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"></script>
+
+    <!-- Skrip Aplikasi Utama -->
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>
